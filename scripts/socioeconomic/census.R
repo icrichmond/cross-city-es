@@ -1,13 +1,13 @@
 targets_census <- c(
   
   tar_target(
-    census_city,
+    cities_census,
     geo_census(mun_bound_trees, census_da_clean, 'city')
     
   ),
   
   tar_target(
-    census_neighbourhood,
+    neighbourhood_census,
     geo_census(neighbourhood_bound_trees, census_da_clean, 'neighbourhood')
   )
   
