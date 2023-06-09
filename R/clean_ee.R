@@ -24,7 +24,8 @@ clean_sat <- function(folder, file, dl_path){
     df <- file %>% select(-c('system.index', '.geo')) %>% 
       rename_with(., ~ paste0(.x, "_", label), .cols = all_of(c("NDBI_count", "NDBI_max",	"NDBI_mean",	"NDBI_median",
                                                                 "NDBI_min",	"NDBI_stdDev",	"NDVI_count",	"NDVI_max",
-                                                                "NDVI_mean",	"NDVI_median",	"NDVI_min",	"NDVI_stdDev")))
+                                                                "NDVI_mean",	"NDVI_median",	"NDVI_min",	"NDVI_stdDev"))) %>%
+      rename(any_of(c(city = "CMANAME")))
     
     return(df)
     
@@ -36,7 +37,8 @@ clean_sat <- function(folder, file, dl_path){
     label <- "temp"
     
     df <- file %>% select(-c('system.index', '.geo')) %>% 
-      rename_with(., ~ paste0(.x, "_", label), .cols = all_of(c("mean", "median", "max", "min", "count", "stdDev")))
+      rename_with(., ~ paste0(.x, "_", label), .cols = all_of(c("mean", "median", "max", "min", "count", "stdDev"))) %>%
+      rename(any_of(c(city = "CMANAME")))
     
     return(df)
   
@@ -48,7 +50,8 @@ clean_sat <- function(folder, file, dl_path){
     label <- "bldhgt"
     
     df <- file %>% select(-c('system.index', '.geo')) %>% 
-      rename_with(., ~ paste0(.x, "_", label), .cols = all_of(c("mean", "stdDev")))
+      rename_with(., ~ paste0(.x, "_", label), .cols = all_of(c("mean", "stdDev"))) %>%
+      rename(any_of(c(city = "CMANAME")))
     
     return(df)
 
@@ -60,7 +63,8 @@ clean_sat <- function(folder, file, dl_path){
     label <- basename(sans_ext(dl_path))
     
     df <- file %>% select(-c('system.index', '.geo')) %>% 
-      rename_with(., ~ paste0(.x, "_", label), .cols = all_of(c("mean", "median", "max", "min", "count", "stdDev")))
+      rename_with(., ~ paste0(.x, "_", label), .cols = all_of(c("mean", "median", "max", "min", "count", "stdDev"))) %>%
+      rename(any_of(c(city = "CMANAME")))
     
     return(df)
     
