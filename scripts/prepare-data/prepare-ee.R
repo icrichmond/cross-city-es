@@ -9,12 +9,6 @@ targets_prepare_ee <- c(
     values = values_ee
   ),
   
-  tar_target(
-    cities_temp,
-    cities_lst %>%
-      rename(city = CMANAME)
-  ),
-  
   # combine pollution for city level
   tar_target(
     cities_pollution,
