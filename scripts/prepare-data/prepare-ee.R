@@ -10,8 +10,8 @@ targets_prepare_ee <- c(
   ),
   
   tar_target(
-    neighbourhood_temp,
-    neighbourhoods_lst %>%
+    cities_temp,
+    cities_lst %>%
       rename(city = CMANAME)
   ),
   
@@ -28,7 +28,7 @@ targets_prepare_ee <- c(
   
   # combine pollution for neighbourhood level
   tar_target(
-    neighbourhoods_pollution,
+    neighbourhood_pollution,
     bind_cols(neighbourhoods_CO %>% select(-c('id')),
               neighbourhoods_NO2 %>% select(-c('id', 'city', 'hood', 'hood_area', 'hood_id')),
               neighbourhoods_O3 %>% select(-c('id', 'city', 'hood', 'hood_area', 'hood_id')),
