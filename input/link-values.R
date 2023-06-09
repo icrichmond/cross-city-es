@@ -113,15 +113,15 @@ values_census <- tribble(
 values_ee <- tribble(
   ~dl_path, ~dl_link,
   'large/ndvi_ndbi/cities_ndvi_ndbi.csv', 'Data/SENTINEL_NDVI_NDBI/cities_ndvi.csv',
-  'large/ndvi_ndbi/neighbourhoods_ndvi_ndbi.csv', 'Data/SENTINEL_NDVI_NDBI/neighbourhoods_ndvi.csv',
+  'large/ndvi_ndbi/neighbourhood_ndvi_ndbi.csv', 'Data/SENTINEL_NDVI_NDBI/neighbourhoods_ndvi.csv',
   'large/ndvi_ndbi/streets_ndvi_ndbi.csv', 'Data/SENTINEL_NDVI_NDBI/streets_ndvi.csv',
   
   'large/temperature/cities_lst.csv', 'Data/Landsat_Temperature/cities_lst.csv',
-  'large/temperature/neighbourhoods_lst.csv', 'Data/Landsat_Temperature/neighbourhoods_lst.csv',
+  'large/temperature/neighbourhood_lst.csv', 'Data/Landsat_Temperature/neighbourhoods_lst.csv',
   'large/temperature/streets_lst.csv', 'Data/Landsat_Temperature/streets_lst.csv',
   
   'large/dem/cities_bldhgt.csv', 'Data/DEM/cities_dem.csv',
-  'large/dem/neighbourhoods_bldhgt.csv', 'Data/DEM/neighbourhoods_dem.csv',
+  'large/dem/neighbourhood_bldhgt.csv', 'Data/DEM/neighbourhoods_dem.csv',
   'large/dem/streets_bldhgt.csv', 'Data/DEM/streets_dem.csv',
   
   'large/pollution/cities_CO.csv', 'Data/SENTINEL_Pollution/CO_city.csv',
