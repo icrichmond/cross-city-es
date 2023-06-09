@@ -6,12 +6,12 @@ targets_building_density <- c(
   ),
   
   tar_target(
-    build_dens_city,
+    cities_builddens,
     geo_build_dens(mun_bound_trees, build_dens, 'city')
   ),
   
   tar_target(
-    build_dens_neighbourhood,
+    neighbourhood_builddens,
     geo_build_dens(neighbourhood_bound_trees, build_dens, 'neighbourhood')
   ),
   
