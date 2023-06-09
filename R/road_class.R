@@ -36,7 +36,7 @@ road_class <- function(mun_road, bound_area, scale){
   else if (scale == "neighbourhood"){
     
     road_class_neighbourhood <- st_intersection(mun_road, bound_area) %>% 
-      group_by(city, hood_id) %>%
+      group_by(city, hood, hood_id) %>%
       mutate(neighbourhood_area = set_units(hood_area, km^2),
              road_length = set_units(st_length(geometry), km)) %>%
       summarize(prop_highway = sum(rank == "1" | rank == "2" | rank == "3")/n(),
