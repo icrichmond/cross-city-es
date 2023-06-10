@@ -8,7 +8,9 @@ tree_richness <- function(can_trees, scale){
     rename(SpeciesRichness = value) %>%
     mutate(Shannon = diversity(matrix))
   
-  return(sr)
+  sr_col <- fix_cols(sr, scale) 
+  
+  return(sr_col)
   
 }
 
@@ -32,15 +34,15 @@ format_vegan <- function(can_trees, scale){
   else if (scale == 'neighbourhood'){
     
     cutoff <- can_trees %>%
-      group_by(city, hood) %>% 
+      group_by(city, hood, hood_id) %>% 
       mutate(nTrees = n()) %>% 
       filter(nTrees > 50)
     
     matrix <- cutoff %>% 
       drop_na(species) %>%
-      group_by(city, hood, fullname) %>% 
+      group_by(city, hood, hood_id, fullname) %>% 
       mutate(n = n(),
-             city_hood = paste0(city, "_", hood)) %>%
+             city_hood = paste0(city, "_", hood, "_", hood_id)) %>%
       select(c(city_hood, fullname, n)) %>% 
       st_set_geometry(NULL) %>%
       pivot_wider(names_from = 'fullname', values_from = 'n', values_fill = 0, values_fn = first) %>%
@@ -79,3 +81,17 @@ format_vegan <- function(can_trees, scale){
   else { print("error: no scales matched") }
   
 }
+
+
+fix_cols <- function(sr, scale){
+  
+  if (scale == 'neighbourhood'){
+    
+  sr[c('city', 'hood', 'hood_id')] <- str_split_fixed(sr$neighbourhood, '_', 3)
+  
+  return(sr)
+  }
+  
+  else {return(sr)}
+}
+  
