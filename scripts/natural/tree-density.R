@@ -2,12 +2,12 @@ targets_tree_density <- c(
   
   tar_target(
     cities_treedensity, 
-    tree_density(can_trees, 'city', cities_treesize, build_dens_city)
+    tree_density(can_trees, 'city', cities_treesize, cities_builddens)
   ),
   
   tar_target(
     neighbourhood_treedensity, 
-    tree_density(can_trees, 'neighbourhood', neighbourhood_treesize, build_dens_neighbourhood)
+    tree_density(can_trees, 'neighbourhood', neighbourhood_treesize, neighbourhood_builddens)
   ),
   
   tar_target(
