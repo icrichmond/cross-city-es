@@ -11,7 +11,7 @@ targets_prepare_datasets <- c(
   
   tar_target(
     neighbourhood_data,
-    full_datasets(c('city', 'hood', 'hood_id'),
+    full_datasets(c('city', 'hood'),
                   neighbourhood_lst, neighbourhood_pollution, 
                   neighbourhood_builddens, neighbourhood_roadclass, neighbourhood_ndvi_ndbi, neighbourhood_bldhgt,
                   neighbourhood_treerichness, neighbourhood_treesize, neighbourhood_treedensity, 
