@@ -16,7 +16,7 @@ tree_size <- function(can_trees, scale){
   else if (scale == 'neighbourhood'){
     
     grouped <- all_tree_in %>%
-      group_by(city, hood) %>%
+      group_by(city, hood, hood_id) %>%
       mutate(nTrees = n()) %>% 
       filter(nTrees > 50) %>%
       select(-nTrees)
