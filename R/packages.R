@@ -24,6 +24,7 @@ conflict_prefer("first", "dplyr", "data.table", quiet = T)
 library(tidyr)
 library(stringr)
 library(tibble)
+library(purrr)
 
 library(data.table)
 
